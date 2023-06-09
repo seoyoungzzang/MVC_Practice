@@ -1,0 +1,62 @@
+<html> <!-- html 열기 -->
+
+<head> <!-- head 열기 -->
+    <meta charset="UTF-8"> <!-- 한글 출력 셋팅 -->
+</head> <!-- head 닫기 -->
+
+<body> <!-- body 열기 -->
+    <script> <!-- script 시작 -->
+        function searchData() { // searchData 함수 생성
+            const form = document.getElementById('inputForm2'); // id가 inputForm2인 요소 가져오기
+            const studentid = form.elements.searchid.value; // 학번 필드 값 가져오기
+            const pattern = /^[0-9]{6}$/; //6자리 정수만 받기
+
+        if (!studentid) { // 입력 창이 비어있으면
+            alert("학번을 입력해주세요."); // 해당 메세지 출력
+            return; // 함수 실행 종료
+        } 
+        if (!pattern.test(studentid)) { // 6자리의 정수가 아니면
+            alert("학번은 6자리 정수만 입력 가능합니다."); // 해당 메세지 출력
+            return; // 함수 실행 종료
+        }
+        form.action = "showREC.jsp"; // form의 action 속성 설정
+        form.submit(); // form 요소 제출
+        }
+    </script> <!-- script 닫기 --> 
+    <h1>성적 조회 후 정정 / 삭제</h1> <!-- h1 내용 입력 -->
+    <form method='post' id='inputForm2'> <!-- post 형식 id를 inputForm2로 설정-->
+    <table cellspacing =1 width=400 border=0> <!-- table 열기 및 스타일 지정 -->
+        <tr> <!-- tr 열기 -->
+            <td width=300><p align = center>조회할 학번</p></td> <!-- p 열기 및 내용 입력 -->
+            <td width=100><p align = center><input type='text' name = 'searchid' value=''></p></td> <!-- 검색할 학번 입력 칸 -->
+            <td width=100><input type="button" value="조회" onclick="searchData()"></td> <!-- button 클릭하면 함수 호출됨 -->
+        </tr> <!-- tr 닫기 -->
+    </table> <!-- table 닫기 -->
+    </form> <!-- form 닫기 -->
+    <form> <!-- form 열기 -->
+    <table cellspacing=1 width=400 border=1> <!-- table 열기 및 스타일 지정 -->
+        <tr> <!-- tr 열기 -->
+            <td width=100><p align=center>이름</p></td> <!-- 첫 번째 열: 이름 -->
+            <td width=300><p align=center></p></td> <!-- 두 번째 열: 빈 칸 -->
+        </tr> <!-- tr 닫기 -->
+        <tr> <!-- tr 열기 -->
+            <td width=100><p align=center>학번</p></td> <!-- 첫 번째 열: 학번 -->
+            <td width=300><p align=center></p></td> <!-- 두 번째 열: 빈 칸 -->
+        </tr> <!-- tr 닫기 -->
+        <tr> <!-- tr 열기 --> 
+            <td width=100><p align=center>국어</p></td> <!-- 첫 번째 열: 국어 점수 -->
+            <td width=300><p align=center></p></td> <!-- 두 번째 열: 빈 칸 -->
+        </tr> <!-- tr 닫기 -->
+        <tr> <!-- tr 열기 -->
+            <td width=100><p align=center>영어</p></td> <!-- 첫 번째 열: 영어 점수 -->
+            <td width=300><p align=center></p></td> <!-- 두 번째 열: 빈 칸 -->
+        </tr> <!-- tr 닫기 -->
+        <tr> <!-- tr 열기 -->
+            <td width=100><p align=center>수학</p></td> <!-- 첫 번째 열: 수학 점수 -->
+            <td width=300><p align=center></p></td> <!-- 두 번째 열: 빈 칸 -->
+        </tr> <!-- tr 닫기 -->
+    </table> <!-- table 닫기 -->
+    </form> <!-- form 닫기 -->
+</body> <!-- body 닫기 -->
+
+</html> <!-- html 닫기 -->
